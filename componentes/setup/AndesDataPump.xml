@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuracao>
+  <conexaoOrigem>
+    <hostname>localhost/3050</hostname>
+    <database>C:\AndesERP\ibdb\BancoOrigem.FDB</database>
+    <username>andpro3dthkmdka</username>
+    <password>eTJiJWRtL25pfA==</password>
+    <charset>WIN1251</charset>
+  </conexaoOrigem>
+  <conexaoDestino>
+    <hostname>localhost/55988</hostname>
+    <database>C:\AndesERP\DataPump\Destino_ANDESDB_7_6_30_ID101.FDB</database>
+    <username>andpro3dthkmdka</username>
+    <password>eTJiJWRtL25pfA==</password>
+    <charset>WIN1252</charset>
+  </conexaoDestino>
+  <caminhoLog>C:\AndesERP\DataPump\</caminhoLog>
+</configuracao>

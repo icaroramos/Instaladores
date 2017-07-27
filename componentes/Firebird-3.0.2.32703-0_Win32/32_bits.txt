@@ -1,0 +1,2 @@
+Este firebird foi instalado em modo 32 bits
+versão: Firebird-3.0.2.32703-0_Win32

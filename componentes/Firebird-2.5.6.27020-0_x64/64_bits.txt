@@ -1,0 +1,2 @@
+Este firebird foi instalado em modo 64 bits
+versão: Firebird-2.5.6.27020-0_x64
