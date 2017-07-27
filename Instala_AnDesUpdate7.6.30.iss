@@ -47,7 +47,6 @@ BackColorDirection=lefttoright
 BackColor2=clAqua
 OutputDir=www
 DisableStartupPrompt=false
-;Password=and1989
 UsePreviousAppDir=true
 ChangesAssociations=true
 DirExistsWarning=yes
