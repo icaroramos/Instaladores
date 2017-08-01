@@ -1,4 +1,6 @@
 *.FDB
 *.fdb
-componentes\setup\
-www\*
+componentes/setup/
+www/
+www/Instalador_AnDesERP_7.6.30.exe
+componentes/setup/ANDESDB_7_6_30_ID101.7z
