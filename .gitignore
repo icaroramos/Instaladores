@@ -1,0 +1,4 @@
+*.FDB
+*.fdb
+componentes\setup\
+www\*

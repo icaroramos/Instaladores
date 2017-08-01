@@ -90,20 +90,21 @@ Name: "datapump"; Description: "Data Pump"; ExtraDiskSpaceRequired: 300; Types: 
 
 [Dirs]
 Name: "{app}\ibdb"; Components: FB25 servidor25 Servidor30 FB30
-Name: "{app}\Firebird30"; Components: FB30 Servidor30
+Name: "{app}\Firebird30"; Components: FB30
 Name: "{app}\SPED"; Components: servidor25 Servidor30
 Name: "{app}\TEMP"; Components: Estacao
 Name: "{app}\XML_ENTRADA"; Components: Estacao
 Name: "{app}\NFEletronica"; Components: Estacao
 Name: "{app}\ibdb\backup_bd"; Components: servidor25 Servidor30
 Name: "{app}\ibdb\log_backup_exporta"; Components: servidor25 Servidor30
-Name: "{sd}\Temp"; Components: Estacao
-Name: "{sd}\Tmp"; Components: Estacao
+Name: "{sd}\Temp"; 
+Name: "{sd}\Tmp";
 Name: "{app}\DataPump"; Components: datapump
 
 [Files]
-Source: "componentes\EXE_ESTACAO\*"; DestDir: "{app}\"; Flags: ignoreversion; Components: Estacao servidor25 Servidor30
-Source: "{tmp}\AndesDataPump.zip"; DestDir: "{app}\DataPump\"; Flags: external; Components: DataPump
+Source: "componentes\EXE_ESTACAO\*"; DestDir: "{app}\"; Components: Estacao servidor25 Servidor30
+Source: "{tmp}\AndesDataPump.zip"; DestDir: "{app}\DataPump\"; Flags: external; Components: datapump
+Source: "{tmp}\descompactaDP.bat"; DestDir: "{app}\DataPump\"; Flags: external; Components: datapump
 Source: "{tmp}\ANDESDB_7_6_30_ID101.zip"; DestDir: "{app}\DataPump\"; Flags: external; Components: DataPump
 Source: "{tmp}\AndesBackupToolSrv.zip"; DestDir: "{app}\"; Flags: external; Components: servidor25
 Source: "{tmp}\AndesLogErrorTransfer.zip"; DestDir: "{app}\"; Flags: external; Components: servidor25
@@ -113,6 +114,7 @@ Source: "{tmp}\install_services.bat"; DestDir: "{app}\"; Flags: external; Compon
 Source: "{tmp}\AndesMonitorUpdate.zip"; DestDir: "{app}\"; Flags: external; Components: servidor25
 Source: "{tmp}\restart_service_config.xml"; DestDir: "{app}\"; Flags: external; Components: servidor25
 Source: "{tmp}\AndesConfiguracao_MODELO.xml"; DestDir: "{app}\"; Flags: external; Components: servidor25
+Source: "{tmp}\descompactaSRV.bat"; DestDir: "{app}\"; Flags: external; Components: servidor25
 Source: "{tmp}\cepbras.zip"; DestDir: "{app}\ibdb\"; Flags: external; Components: servidor25
 Source: "componentes\setup\Firebird-3.0.2.32703_0_Win32.exe"; DestDir: "{app}\INSTALADORES\"; Components: Servidor30
 Source: "componentes\INSTALADORES\*"; DestDir: "{app}\INSTALADORES\"; Flags: ignoreversion
@@ -133,7 +135,6 @@ Source: "componentes\Firebird-2.5.6.27020-0_Win32\misc\*"; DestDir: "{app}\Fireb
 Source: "componentes\Firebird-2.5.6.27020-0_Win32\plugins\*"; DestDir: "{app}\Firebird25\plugins\"; Flags: ignoreversion
 Source: "componentes\Firebird-2.5.6.27020-0_Win32\system32\*"; DestDir: "{app}\Firebird25\system32\"; Flags: ignoreversion
 Source: "componentes\Firebird-2.5.6.27020-0_Win32\udf\*"; DestDir: "{app}\Firebird25\udf\"; Flags: ignoreversion
-
 Source: "componentes\Firebird-3.0.2.32703-0_Win32\fbclient.dll"; DestDir: "{app}\app\"; Flags: ignoreversion; Components: FB30
 Source: "componentes\Firebird-3.0.2.32703-0_Win32\fbclient.dll"; DestDir: "{app}\"; Flags: ignoreversion; Components: FB30
 Source: "componentes\Firebird-3.0.2.32703-0_Win32\firebird.conf"; DestDir: "{app}\Firebird30\"; Flags: ignoreversion; Components: FB30
@@ -175,8 +176,8 @@ Root: "HKCU"; Subkey: "Environment\"; ValueType: expandsz; ValueName: "AndesFB30
 ;Compartilhando pasta AnDesERP
 Filename: "net"; Parameters: "share AndesERP=""{app}\AndesERP"" /grant:Todos,full /users:20 /remark:Compartilhado_Automaticamente"; Flags: nowait runascurrentuser shellexec; StatusMsg: "Compartilhando pasta AndesERP"; Components: Estacao
 Filename: "cacls"; Parameters: """{app}\AndesERP"" /T /P todos:f"; Flags: nowait runascurrentuser shellexec; StatusMsg: "Dando permissões nas pastas"; Components: Estacao
-Filename: "{app}\INSTALADORES\npp.7.4.2.Installer.exe"; WorkingDir: "{app}\INSTALADORES\"; Flags: shellexec runascurrentuser ; StatusMsg: "Instalando Notepad++"; Components: servidor25 Servidor30
-Filename: "{app}\INSTALADORES\Firebird302"; WorkingDir: "{app}\INSTALADORES\"; Flags: shellexec runascurrentuser ; StatusMsg: "Instalação FB30"; Components: FB30
+Filename: "{app}\INSTALADORES\npp.7.4.2.Installer.exe"; WorkingDir: "{app}\INSTALADORES\"; Flags: shellexec runascurrentuser; StatusMsg: "Instalando Notepad++"; Components: servidor25 Servidor30
+Filename: "{app}\INSTALADORES\Firebird302"; WorkingDir: "{app}\INSTALADORES\"; Flags: shellexec runascurrentuser; StatusMsg: "Instalação FB30"; Components: FB30
 Filename: "{app}\install_services.bat"; WorkingDir: "{app}\"; Flags: shellexec runascurrentuser; StatusMsg: "Instalando serviços"; Components: servidor25 Servidor30
 Filename: "{app}\REGISTRA_DLL.bat"; WorkingDir: "{app}\"; Flags: shellexec runascurrentuser; StatusMsg: "Instalando serviços"; Components: servidor25 Servidor30 Estacao
 ;libera a porta 3050
@@ -193,13 +194,11 @@ Filename: "{app}\Firebird25\bin\install_classic.bat"; Parameters: "AndesFB25"; W
 Filename: "{app}\INSTALADORES\ACRaizBrasileira_v2.cer"; Parameters: "/install /silent"; Flags: runascurrentuser shellexec; Components: Estacao
 Filename: "{app}\INSTALADORES\ACCertisignMultiplaG5.cer"; Parameters: "/install /silent"; Flags: runascurrentuser shellexec; Components: Estacao
 Filename: "{app}\INSTALADORES\ACCertisignG6_v2.cer"; Parameters: "/install /silent"; Flags: runascurrentuser shellexec; Components: Estacao
-
-[Messages]
-brazilianportuguese.ButtonInstall=Instalar
-
-[CustomMessages]
-brazilianportuguese.wiki=Veja o manual de instalação no link: http://andeserp.com.br/wiki
-
+Filename: "{app}\descompactaSRV.bat"; Flags: nowait postinstall runhidden; StatusMsg: "Extraindo arquivo"; Components: servidor25 FB25
+Filename: "{app}\DataPump\descompactaDP.bat"; Flags: nowait postinstall runhidden; StatusMsg: "Extraindo arquivo"; Components: servidor25 FB25
+;Filename: "{sys}\regsvr32"; Parameters: "'{sys}\capicom.dll' /s"; StatusMsg: "Registrando DLL capicom"
+;Filename: "{sys}\regsvr32"; Parameters: "'{sys}\msxml5.dll' /s"; StatusMsg: "Registrando DLL msxml5"
+;Filename: "{sys}\regsvr32"; Parameters: "'{sys}\midas.dll' /s"; StatusMsg: "Registrando DLL midas"
 [Code]
 procedure InitializeWizard();
    begin
@@ -212,6 +211,8 @@ procedure InitializeWizard();
        idpAddFileComp('http://andeserp.com.br/update/estavel/setup/AndesLogErrorTransfer.zip', ExpandConstant('{tmp}\AndesLogErrorTransfer.zip'),'servidor25');
        idpAddFileComp('http://andeserp.com.br/update/estavel/setup/AndesLogTransfer.zip', ExpandConstant('{tmp}\AndesLogTransfer.zip'),'servidor25');
        idpAddFileComp('http://andeserp.com.br/update/estavel/setup/AndesMonitorUpdate.zip', ExpandConstant('{tmp}\AndesMonitorUpdate.zip'),'servidor25');
+       idpAddFileComp('http://andeserp.com.br/update/estavel/setup/descompactaSRV.bat', ExpandConstant('{tmp}\descompactaSRV.bat'),'servidor25');
+       idpAddFileComp('http://andeserp.com.br/update/estavel/setup/descompactaDP.bat', ExpandConstant('{tmp}\descompactaDP.bat'),'datapump');
        idpAddFileComp('http://andeserp.com.br/update/estavel/setup/restart_service_config.xml', ExpandConstant('{tmp}\restart_service_config.xml'),'servidor25');
        idpAddFileComp('http://andeserp.com.br/update/estavel/setup/restart_services.bat', ExpandConstant('{tmp}\restart_services.bat'),'servidor25');
        idpAddFileComp('http://andeserp.com.br/update/estavel/setup/install_services.bat', ExpandConstant('{tmp}\install_services.bat'),'servidor25');
