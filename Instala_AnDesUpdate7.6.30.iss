@@ -3,7 +3,7 @@
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{7AA89A45-B79C-4EF7-ABEB-F88FD38B1084}
-AppName=Instalador Padrão AnDes ERP
+AppName=Instalador Padrï¿½o AnDes ERP
 AppVersion=7_6_30
 DefaultDirName=C:\AndesERP
 DefaultGroupName=Andes
@@ -42,7 +42,7 @@ ShowLanguageDialog=auto
 RestartIfNeededByRun=false
 WizardSmallImageFile=logo-instalador.bmp
 AppContact=Comercial
-VersionInfoDescription=Software de Gestão Empresarial
+VersionInfoDescription=Software de Gestï¿½o Empresarial
 BackColorDirection=lefttoright
 BackColor2=clAqua
 OutputDir=www
@@ -74,18 +74,18 @@ Name: brazilianportuguese; MessagesFile: compiler:Languages\BrazilianPortuguese.
 ;Name: datapump; Description: Instala DataPump; GroupDescription: Instala DataPump; Flags: unchecked
 [Types]
 Name: servidor; Description: Instalacao Completa (FB 2.5 + FB 3.0 + DataPump + NFE + Servidor + Estacao)
-Name: servidor32fb25; Description: Servidor 32 Bits Firebird 2.5
-Name: servidor32fb30; Description: Servidor 32 Bits Firebird 3.0
-Name: estacao; Description: Instala somente estação
-Name: nfe; Description: Nota Fiscal Eletrônica
+Name: servidor25; Description: Servidor 32 Bits Firebird 2.5
+Name: servidor30; Description: Servidor 32 Bits Firebird 3.0
+Name: estacao; Description: Instala somente estacao
+Name: nfe; Description: Nota Fiscal Eletronica
 Name: datapump; Description: Data Pump
 
 [Components]
-Name: "Servidor30"; Description: "Servidor 3.0"; Types: datapump estacao nfe servidor servidor32fb25 servidor32fb30
-Name: "servidor25"; Description: "Servidor 2.5"; Types: estacao nfe servidor servidor32fb25
+Name: "Servidor30"; Description: "Servidor 3.0"; Types: datapump estacao nfe servidor servidor25 servidor30
+Name: "servidor25"; Description: "Servidor 2.5"; Types: estacao nfe servidor servidor25
 Name: "Estacao"; Description: "Estacao"; Types: estacao nfe
-Name: "FB25"; Description: "Firebird 2.5"; Types: servidor32fb25
-Name: "FB30"; Description: "Firebird 3.0"; Types: servidor32fb30
+Name: "FB25"; Description: "Firebird 2.5"; Types: servidor25
+Name: "FB30"; Description: "Firebird 3.0"; Types: servidor30
 Name: "datapump"; Description: "Data Pump"; ExtraDiskSpaceRequired: 300; Types: datapump
 
 [Dirs]
@@ -147,22 +147,22 @@ Name: "{commondesktop}\AnDes Sistemas"; Filename: "{app}\AndesAtualizador.exe"; 
 ;PERMITIR QUE O SOFTWARE SEJA EXECUTADO OU INSTALADO MESMO QUE A ASSINATURA SEJA INVALIDA Windows 7
 Root: "HKLM"; Subkey: "SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\RUN_INV_SIG"; ValueType: dword; ValueName: "CheckedValue"; ValueData: "00000001"; Components: Estacao
 Root: "HKLM"; Subkey: "SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\RUN_INV_SIG"; ValueType: dword; ValueName: "DefaultValue"; ValueData: "00000001"
-;VERIFICAR REVOGAÇÃO DE CERTIFICADOS DO SERVIDOR - win7, winXP, win2003, win2008.
+;VERIFICAR REVOGAï¿½ï¿½O DE CERTIFICADOS DO SERVIDOR - win7, winXP, win2003, win2008.
 Root: "HKLM"; Subkey: "SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\SSLREV"; ValueType: dword; ValueName: "CheckedValue"; ValueData: "00000001"
 Root: "HKLM"; Subkey: "SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\SSLREV"; ValueType: dword; ValueName: "DefaultValue"; ValueData: "00000001"; Components: Estacao
-;VERIFICAR SE HÁ CERTIFICADOS REVOGADOS DO EDITOR
+;VERIFICAR SE Hï¿½ CERTIFICADOS REVOGADOS DO EDITOR
 Root: "HKLM"; Subkey: "SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\CERTREV"; ValueType: dword; ValueName: "CheckedValue"; ValueData: "00000001"; Components: Estacao
 Root: "HKLM"; Subkey: "SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\CERTREV"; ValueType: dword; ValueName: "DefaultValue"; ValueData: "00000001"; Components: Estacao
 ;PERMITIR QUE O SOFTWARE SEJA EXECUTADO OU INSTALADO MESMO QUE A ASSINATURA SEJA INVALIDA Windows 7
 Root: "HKLM"; Subkey: "SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\RUN_INV_SIG"; ValueType: dword; ValueName: "CheckedValue"; ValueData: "00000001"; Components: Estacao
 Root: "HKLM"; Subkey: "SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\RUN_INV_SIG"; ValueType: dword; ValueName: "DefaultValue"; ValueData: "00000001"; Components: Estacao
-;VERIFICAR REVOGAÇÃO DE CERTIFICADOS DO SERVIDOR - win7, winXP, win2003, win2008.
+;VERIFICAR REVOGAï¿½ï¿½O DE CERTIFICADOS DO SERVIDOR - win7, winXP, win2003, win2008.
 Root: "HKLM"; Subkey: "SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\SSLREV"; ValueType: dword; ValueName: "CheckedValue"; ValueData: "00000001"; Components: Estacao
 Root: "HKLM"; Subkey: "SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\SSLREV"; ValueType: dword; ValueName: "DefaultValue"; ValueData: "00000001"; Components: Estacao
-;VERIFICAR SE HÁ CERTIFICADOS REVOGADOS DO EDITOR
+;VERIFICAR SE Hï¿½ CERTIFICADOS REVOGADOS DO EDITOR
 Root: "HKLM"; Subkey: "SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\CERTREV"; ValueType: dword; ValueName: "CheckedValue"; ValueData: "00000001"; Components: Estacao
 Root: "HKLM"; Subkey: "SOFTWARE\Microsoft\Internet Explorer\AdvancedOptions\CRYPTO\CERTREV"; ValueType: dword; ValueName: "DefaultValue"; ValueData: "00000001"; Components: Estacao
-;variáveis de ambiente
+;variï¿½veis de ambiente
 Root: "HKLM"; Subkey: "System\CurrentControlSet\Control\Session Manager\Environment\"; ValueType: expandsz; ValueName: "TEMP"; ValueData: "{sd}\TEMP"; Components: Estacao
 Root: "HKCU"; Subkey: "Environment\"; ValueType: expandsz; ValueName: "TEMP"; ValueData: "{sd}\TEMP"; Components: Estacao
 Root: "HKLM"; Subkey: "System\CurrentControlSet\Control\Session Manager\Environment\"; ValueType: expandsz; ValueName: "TMP"; ValueData: "{sd}\TMP"; Components: Estacao
@@ -175,11 +175,11 @@ Root: "HKCU"; Subkey: "Environment\"; ValueType: expandsz; ValueName: "AndesFB30
 [Run]
 ;Compartilhando pasta AnDesERP
 Filename: "net"; Parameters: "share AndesERP=""{app}\AndesERP"" /grant:Todos,full /users:20 /remark:Compartilhado_Automaticamente"; Flags: nowait runascurrentuser shellexec; StatusMsg: "Compartilhando pasta AndesERP"; Components: Estacao
-Filename: "cacls"; Parameters: """{app}\AndesERP"" /T /P todos:f"; Flags: nowait runascurrentuser shellexec; StatusMsg: "Dando permissões nas pastas"; Components: Estacao
+Filename: "cacls"; Parameters: """{app}\AndesERP"" /T /P todos:f"; Flags: nowait runascurrentuser shellexec; StatusMsg: "Dando permissï¿½es nas pastas"; Components: Estacao
 Filename: "{app}\INSTALADORES\npp.7.4.2.Installer.exe"; WorkingDir: "{app}\INSTALADORES\"; Flags: shellexec runascurrentuser; StatusMsg: "Instalando Notepad++"; Components: servidor25 Servidor30
-Filename: "{app}\INSTALADORES\Firebird302"; WorkingDir: "{app}\INSTALADORES\"; Flags: shellexec runascurrentuser; StatusMsg: "Instalação FB30"; Components: FB30
-Filename: "{app}\install_services.bat"; WorkingDir: "{app}\"; Flags: shellexec runascurrentuser; StatusMsg: "Instalando serviços"; Components: servidor25 Servidor30
-Filename: "{app}\REGISTRA_DLL.bat"; WorkingDir: "{app}\"; Flags: shellexec runascurrentuser; StatusMsg: "Instalando serviços"; Components: servidor25 Servidor30 Estacao
+Filename: "{app}\INSTALADORES\Firebird302"; WorkingDir: "{app}\INSTALADORES\"; Flags: shellexec runascurrentuser; StatusMsg: "Instalaï¿½ï¿½o FB30"; Components: FB30
+Filename: "{app}\install_services.bat"; WorkingDir: "{app}\"; Flags: shellexec runascurrentuser; StatusMsg: "Instalando serviï¿½os"; Components: servidor25 Servidor30
+Filename: "{app}\REGISTRA_DLL.bat"; WorkingDir: "{app}\"; Flags: shellexec runascurrentuser; StatusMsg: "Instalando serviï¿½os"; Components: servidor25 Servidor30 Estacao
 ;libera a porta 3050
 Filename: "netsh.exe"; Parameters: "firewall add portopening protocol=TCP port=3050 name=Firebird mode=ENABLE scope=SUBNET"; Flags: runascurrentuser runhidden; Description: "Liberar Porta do Firebird"; Components: FB25 servidor25
 Filename: "netsh.exe"; Parameters: "firewall add portopening protocol=TCP port=3051 name=Firebird_Update mode=ENABLE scope=SUBNET"; Flags: runascurrentuser runhidden; Description: "Liberar Porta do Firebird"; Components: FB25 servidor25
@@ -187,9 +187,9 @@ Filename: "netsh.exe"; Parameters: "firewall add portopening protocol=TCP port=5
 Filename: "netsh.exe"; Parameters: "firewall add portopening protocol=TCP port=55989 name=Firebird_Update30 mode=ENABLE scope=SUBNET"; Flags: runascurrentuser runhidden; Description: "Liberar Porta do Firebird"; Components: FB30 Servidor30
 
 ;instala firebird 2.5 na pasta do aplicativo
-Filename: "{app}\Firebird25\bin\install_classic.bat"; Parameters: "AndesFB25"; WorkingDir: "{app}\Firebird25\bin\"; Flags: shellexec; Description: "Instalação do Firebird 2.5.6"; Components: FB25
+Filename: "{app}\Firebird25\bin\install_classic.bat"; Parameters: "AndesFB25"; WorkingDir: "{app}\Firebird25\bin\"; Flags: shellexec; Description: "Instalaï¿½ï¿½o do Firebird 2.5.6"; Components: FB25
 ;instala firebird 3.0 na pasta do aplicativo
-;Filename: "{app}\Firebird30\install_service.bat"; Parameters: "AndesFB30"; WorkingDir: "{app}\Firebird30\"; Flags: shellexec; Description: "Instalação do Firebird 3.0.2";
+;Filename: "{app}\Firebird30\install_service.bat"; Parameters: "AndesFB30"; WorkingDir: "{app}\Firebird30\"; Flags: shellexec; Description: "Instalaï¿½ï¿½o do Firebird 3.0.2";
 ;certificados
 Filename: "{app}\INSTALADORES\ACRaizBrasileira_v2.cer"; Parameters: "/install /silent"; Flags: runascurrentuser shellexec; Components: Estacao
 Filename: "{app}\INSTALADORES\ACCertisignMultiplaG5.cer"; Parameters: "/install /silent"; Flags: runascurrentuser shellexec; Components: Estacao
